@@ -1,0 +1,124 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            color: #333;
+        }
+        .payment-method {
+            background: #e3e3e3;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .payment-method h3 {
+            margin: 0;
+        }
+        .important {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido a Premium Store</h1>
+        <p>Compra tus cuentas premium fácilmente.</p>
+        
+        <div class="payment-method">
+            <h3>💰 PayPal (Recomendado)</h3>
+            <p>📧 Correo: <strong>gchavarry6@gmail.com</strong></p>
+            <p>⚠️ Enviar como <strong>Amigos y Familia</strong> para evitar comisiones.</p>
+        </div>
+        
+        <div class="payment-method">
+            <h3>💰 Yape (Solo Perú)</h3>
+            <p>📞 Número: <strong>+51 946155928</strong></p>
+            <p>📎 Adjunta el comprobante en nuestro soporte.</p>
+        </div>
+        
+        <div class="payment-method">
+            <h3>💰 BCP (Transferencia Nacional - Perú)</h3>
+            <p>🏦 Número de Cuenta: <strong>19170538587095</strong></p>
+            <p>📝 Titular: <strong>María Agip Diaz</strong></p>
+        </div>
+        
+        <div class="payment-method">
+            <h3>💰 BCP Internacional (Swift o Interbancario)</h3>
+            <p>💳 Código Swift: <strong>BCPLPEPL</strong></p>
+            <p>🏦 Número de Cuenta: <strong>00219117053858709554</strong></p>
+            <p>📝 Titular: <strong>María Agip Diaz</strong></p>
+            <p>⏳ Puede tardar hasta <strong>24 horas</strong> en procesarse.</p>
+        </div>
+        
+        <div class="payment-method">
+            <h3>💰 Nequi</h3>
+            <p>📞 Número de Cuenta: <strong>3207847003</strong></p>
+            <p>📝 Titular: <strong>Miguel García</strong></p>
+        </div>
+        
+        <p class="important">⚠️ IMPORTANTE: Siempre adjunta tu comprobante en nuestro soporte después de pagar.</p>
+        <p>🚀 ¡Compra ahora y recibe tu cuenta premium!</p>
+    </div>
+</body>
+</html>
+
